@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-labelledby="glowLogoWhiteTitle glowLogoWhiteDesc">
+  <title id="glowLogoWhiteTitle">Glow Curated Logo In White</title>
+  <desc id="glowLogoWhiteDesc">Circular GC monogram with Glow Curated wordmark in white</desc>
+  <circle cx="60" cy="60" r="48" fill="#FFFFFF" opacity="0.2"/>
+  <text x="60" y="76" text-anchor="middle" font-family="'Playfair Display', serif" font-size="58" fill="#FFFFFF" font-weight="600">GC</text>
+  <text x="130" y="55" font-family="'Playfair Display', serif" font-size="42" fill="#FFFFFF">Glow</text>
+  <text x="130" y="92" font-family="'Montserrat', sans-serif" font-size="26" letter-spacing="6" fill="#FFFFFF">CURATED</text>
+</svg>

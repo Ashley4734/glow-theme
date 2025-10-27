@@ -1,0 +1,28 @@
+/* Editor styles matching front-end typography */
+:root {
+  --gc-accent: #E89B7E;
+  --gc-base: #FAF9F6;
+  --gc-text: #201C17;
+  --gc-heading-font: 'Playfair Display', serif;
+  --gc-body-font: 'Montserrat', sans-serif;
+}
+
+body.wp-editor {
+  font-family: var(--gc-body-font);
+  background-color: var(--gc-base);
+  color: var(--gc-text);
+  padding: 2rem;
+}
+
+body.wp-editor h1,
+body.wp-editor h2,
+body.wp-editor h3,
+body.wp-editor h4,
+body.wp-editor h5,
+body.wp-editor h6 {
+  font-family: var(--gc-heading-font);
+}
+
+body.wp-editor a {
+  color: var(--gc-accent);
+}

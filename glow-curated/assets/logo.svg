@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-labelledby="glowLogoTitle glowLogoDesc">
+  <title id="glowLogoTitle">Glow Curated Logo</title>
+  <desc id="glowLogoDesc">Circular GC monogram with Glow Curated wordmark</desc>
+  <defs>
+    <linearGradient id="roseGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E89B7E"/>
+      <stop offset="100%" stop-color="#D88A6F"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <circle cx="60" cy="60" r="48" fill="url(#roseGold)"/>
+    <text x="60" y="76" text-anchor="middle" font-family="'Playfair Display', serif" font-size="58" fill="#FFFFFF" font-weight="600">GC</text>
+  </g>
+  <text x="130" y="55" font-family="'Playfair Display', serif" font-size="42" fill="#2C2C2C">Glow</text>
+  <text x="130" y="92" font-family="'Montserrat', sans-serif" font-size="26" letter-spacing="6" fill="#555555">CURATED</text>
+</svg>

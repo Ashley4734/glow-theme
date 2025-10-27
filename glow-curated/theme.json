@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "custom": {
+      "newsletter": {
+        "shortcode_default": "[contact-form-7 id=\"newsletter\"]"
+      }
+    },
+    "color": {
+      "palette": [
+        { "name": "Accent", "slug": "accent", "color": "#E89B7E" },
+        { "name": "Ink", "slug": "ink", "color": "#201C17" },
+        { "name": "Champagne", "slug": "champagne", "color": "#FAF9F6" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Playfair Display', serif",
+          "slug": "playfair-display",
+          "name": "Playfair Display",
+          "fontFace": [
+            {
+              "fontFamily": "Playfair Display",
+              "fontWeight": "500 700",
+              "src": ["https://fonts.gstatic.com/s/playfairdisplay/v30/nuFiD-vYSZviVYUb_rj3ij__anPXDTn0.woff2"],
+              "fontStyle": "normal"
+            }
+          ]
+        },
+        {
+          "fontFamily": "'Montserrat', sans-serif",
+          "slug": "montserrat",
+          "name": "Montserrat",
+          "fontFace": [
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "400 600",
+              "src": ["https://fonts.gstatic.com/s/montserrat/v25/JTURjIg1_i6t8kCHKm459Wlhyw.woff2"],
+              "fontStyle": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#FAF9F6",
+      "text": "#201C17"
+    },
+    "typography": {
+      "fontFamily": "'Montserrat', sans-serif"
+    }
+  }
+}
