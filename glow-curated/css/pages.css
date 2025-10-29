@@ -223,6 +223,13 @@
     padding: var(--spacing-xxl) 0 var(--spacing-xl);
 }
 
+@media (max-width: 1024px) {
+    .page-hero {
+        padding-top: calc(var(--spacing-xl) + 20px);
+        margin-top: var(--spacing-md);
+    }
+}
+
 .page-hero.page-hero--title-hidden {
     min-height: auto;
     padding: var(--spacing-xl) 0;
