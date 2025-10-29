@@ -47,126 +47,160 @@ body {
 }
 
 /* ===== SINGLE POST HERO – TITLE OVERLAY ===== */
-/* Version: 2.1 - Enhanced with better specificity */
+/* Version: 2.3 - Override inline width/height attributes */
 
-/* Make hero a containing block with defined height */
-.blog-hero {
+/* Hero container - establishes positioning context */
+.blog-hero,
+section.blog-hero {
     position: relative !important;
+    width: 100% !important;
     min-height: clamp(400px, 50vw, 650px) !important;
     overflow: hidden !important;
     border-bottom: 1px solid rgba(0,0,0,.06);
     background: #fff;
     display: block !important;
-}
-
-/* Full-bleed image container - ABSOLUTE so it doesn't affect flow */
-.blog-hero .hero-image-wrapper {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    overflow: hidden !important;
-    z-index: 0 !important;
-}
-
-/* Image fills container, centered */
-.blog-hero .hero-image,
-.blog-hero .hero-image-wrapper img {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-    object-fit: cover !important;
-    object-position: 50% 50% !important;
-    max-width: none !important;
-    border-radius: 0 !important;
-    transform: scale(1.02);
-    transition: transform .35s ease;
-}
-
-.blog-hero .hero-image-wrapper:hover .hero-image,
-.blog-hero .hero-image-wrapper:hover img {
-    transform: scale(1.04);
-}
-
-/* Remove any WP alignment styles */
-.blog-hero .hero-image.alignleft,
-.blog-hero .hero-image.alignright,
-.blog-hero .hero-image.alignnone,
-.blog-hero .hero-image.wp-post-image,
-.blog-hero img.alignleft,
-.blog-hero img.alignright,
-.blog-hero img.alignnone,
-.blog-hero img.wp-post-image {
-    float: none !important;
     margin: 0 !important;
 }
 
-/* Dark overlay for text contrast */
-.blog-hero .hero-overlay {
+/* Image wrapper - fills the entire hero container */
+.blog-hero .hero-image-wrapper,
+section.blog-hero .hero-image-wrapper {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    z-index: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* The actual image element - multiple selectors for maximum compatibility */
+.blog-hero .hero-image-wrapper > img,
+.blog-hero .hero-image-wrapper img.hero-image,
+.blog-hero .hero-image-wrapper img.wp-post-image,
+.blog-hero img.hero-image,
+section.blog-hero .hero-image-wrapper > img {
+    /* Override inline width/height attributes */
+    position: absolute !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    /* Force 100% dimensions */
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+
+    /* Layout properties */
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+
+    /* Animation */
+    transform: scale(1.02);
+    transition: transform .35s ease;
+}
+
+/* Hover effect on image */
+.blog-hero .hero-image-wrapper:hover > img,
+.blog-hero .hero-image-wrapper:hover img {
+    transform: scale(1.04);
+}
+
+/* Remove WordPress alignment classes */
+.blog-hero .alignleft,
+.blog-hero .alignright,
+.blog-hero .aligncenter,
+.blog-hero .alignnone {
+    float: none !important;
+    margin: 0 !important;
+    display: block !important;
+}
+
+/* Dark gradient overlay for text readability */
+.blog-hero .hero-overlay,
+section.blog-hero .hero-overlay {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     z-index: 1 !important;
     background: linear-gradient(180deg,
         rgba(0,0,0,0.10) 0%,
         rgba(0,0,0,0.34) 48%,
         rgba(0,0,0,0.62) 100%) !important;
     pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Title/content block - overlays the image at the bottom */
-.blog-hero .hero-content {
+/* Title/content container */
+.blog-hero .hero-content,
+section.blog-hero .hero-content {
     position: relative !important;
     z-index: 2 !important;
+    width: 100% !important;
 }
 
-.blog-hero .hero-content.with-image {
-    /* Position at the bottom of the hero */
+/* Position title over the image at the bottom */
+.blog-hero .hero-content.with-image,
+section.blog-hero .hero-content.with-image {
     position: absolute !important;
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
+    width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
 }
 
 .blog-hero .hero-content.with-image .container {
     padding: clamp(16px, 3vw, 32px) clamp(16px, 3vw, 28px) clamp(24px, 4vw, 40px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
-/* Text readability on image */
-.blog-hero .hero-content.with-image h1 {
-    color: #fff !important;
-    text-shadow: 0 2px 12px rgba(0,0,0,.50), 0 1px 3px rgba(0,0,0,.40) !important;
-}
-
+/* White text with shadow for readability */
+.blog-hero .hero-content.with-image h1,
+.blog-hero .hero-content.with-image .eyebrow,
 .blog-hero .hero-content.with-image .lede,
 .blog-hero .hero-content.with-image .meta,
-.blog-hero .hero-content.with-image .breadcrumb,
-.blog-hero .hero-content.with-image .eyebrow {
-    color: rgba(255,255,255,.96) !important;
-    text-shadow: 0 1px 8px rgba(0,0,0,.35) !important;
+.blog-hero .hero-content.with-image .breadcrumb {
+    color: #ffffff !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.45) !important;
 }
 
 .blog-hero .hero-content.with-image .breadcrumb a {
     color: #fff !important;
-    border-bottom-color: rgba(255,255,255,.45) !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.45) !important;
 }
 
 .blog-hero .hero-content.with-image .breadcrumb a:hover {
-    border-bottom-color: rgba(255,255,255,.75) !important;
+    border-bottom-color: rgba(255,255,255,.85) !important;
 }
 
-/* Share buttons on image */
+/* Share buttons styling */
 .blog-hero .hero-content.with-image .share .share-btn {
     background: rgba(255,255,255,.92) !important;
-    border-color: rgba(255,255,255,.85) !important;
+    border: 1px solid rgba(255,255,255,.85) !important;
     color: #2c2c2c !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -177,21 +211,23 @@ body {
     border-color: rgba(255,255,255,1) !important;
 }
 
-/* Posts without images (text-only) */
+/* Posts without featured images */
 .blog-hero .hero-content.text-only {
     position: relative !important;
     padding: clamp(28px, 5vw, 56px) 0 clamp(16px, 3vw, 28px) !important;
 }
 
-/* Mobile adjustments */
+/* Responsive adjustments */
 @media (max-width: 980px) {
-    .blog-hero {
+    .blog-hero,
+    section.blog-hero {
         min-height: clamp(350px, 48vw, 550px) !important;
     }
 }
 
 @media (max-width: 640px) {
-    .blog-hero {
+    .blog-hero,
+    section.blog-hero {
         min-height: clamp(320px, 60vw, 450px) !important;
     }
 
@@ -200,13 +236,19 @@ body {
     }
 }
 
-/* Respect reduced motion preference */
+/* Accessibility - respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .blog-hero .hero-image,
     .blog-hero .hero-image-wrapper img {
         transition: none !important;
         transform: scale(1) !important;
     }
+}
+
+/* Debug: Force override any remaining conflicts */
+.blog-hero .hero-image-wrapper img[width],
+.blog-hero .hero-image-wrapper img[height] {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* Legacy fallback for pages using old hero class */
