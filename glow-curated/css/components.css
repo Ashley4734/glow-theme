@@ -173,7 +173,6 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity var(--transition), transform var(--transition);
-        z-index: 999;
     }
 
     .main-nav.open {
@@ -184,16 +183,6 @@
 
     .mobile-menu-toggle {
         display: flex;
-    }
-
-    /* Prevent mobile menu from covering page content */
-    main {
-        padding-top: var(--spacing-sm);
-    }
-
-    /* Additional spacing for breadcrumb on mobile */
-    .breadcrumb {
-        margin-top: var(--spacing-sm);
     }
 }
 
