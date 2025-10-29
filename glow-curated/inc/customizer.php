@@ -42,5 +42,29 @@ function glow_customize_register($wp_customize) {
         'section' => 'glow_settings',
         'type' => 'text',
     ));
+
+    // Facebook URL
+    $wp_customize->add_setting('glow_facebook_url', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control('glow_facebook_url', array(
+        'label' => 'Facebook URL',
+        'section' => 'glow_settings',
+        'type' => 'url',
+    ));
+
+    // X (Twitter) URL
+    $wp_customize->add_setting('glow_x_url', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control('glow_x_url', array(
+        'label' => 'X (Twitter) URL',
+        'section' => 'glow_settings',
+        'type' => 'url',
+    ));
 }
 add_action('customize_register', 'glow_customize_register');

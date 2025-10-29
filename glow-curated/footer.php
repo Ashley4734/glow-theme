@@ -85,14 +85,43 @@
                     echo $social_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     echo '</div>';
                 } else {
+                    echo '<div class="social-links">';
+
+                    // Pinterest
                     $pinterest = get_theme_mod('glow_pinterest_username', 'GlowCurated');
-                    $url = 'https://pinterest.com/' . rawurlencode($pinterest);
-                    ?>
-                    <a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer" class="social-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12 2C6.486 2 2 6.389 2 11.795c0 3.978 2.59 7.375 6.236 8.647-.086-.734-.163-1.862.034-2.662.177-.742 1.145-4.728 1.145-4.728s-.292-.586-.292-1.452c0-1.36.788-2.375 1.771-2.375.835 0 1.238.627 1.238 1.378 0 .84-.535 2.095-.812 3.259-.231.978.491 1.776 1.456 1.776 1.748 0 3.087-1.844 3.087-4.504 0-2.353-1.691-4.001-4.106-4.001-2.799 0-4.442 2.099-4.442 4.267 0 .84.322 1.743.724 2.233a.29.29 0 0 1 .067.279c-.074.307-.241.978-.274 1.112-.043.177-.142.215-.329.129-1.23-.568-1.997-2.352-1.997-3.785 0-3.086 2.244-5.918 6.467-5.918 3.394 0 6.033 2.419 6.033 5.655 0 3.374-2.126 6.093-5.081 6.093-1 0-1.941-.52-2.263-1.135 0 0-.495 1.89-.615 2.356-.187.713-.686 1.605-1.022 2.147.77.238 1.585.368 2.432.368 5.514 0 10-4.389 10-9.795C22 6.389 17.514 2 12 2Z"/></svg>
-                        <?php esc_html_e('Follow on Pinterest', 'glow-curated'); ?>
-                    </a>
-                    <?php
+                    if ($pinterest) {
+                        $pinterest_url = 'https://pinterest.com/' . rawurlencode($pinterest);
+                        ?>
+                        <a href="<?php echo esc_url($pinterest_url); ?>" target="_blank" rel="noopener noreferrer" class="social-link social-link--pinterest" aria-label="<?php esc_attr_e('Follow on Pinterest', 'glow-curated'); ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.486 2 2 6.389 2 11.795c0 3.978 2.59 7.375 6.236 8.647-.086-.734-.163-1.862.034-2.662.177-.742 1.145-4.728 1.145-4.728s-.292-.586-.292-1.452c0-1.36.788-2.375 1.771-2.375.835 0 1.238.627 1.238 1.378 0 .84-.535 2.095-.812 3.259-.231.978.491 1.776 1.456 1.776 1.748 0 3.087-1.844 3.087-4.504 0-2.353-1.691-4.001-4.106-4.001-2.799 0-4.442 2.099-4.442 4.267 0 .84.322 1.743.724 2.233a.29.29 0 0 1 .067.279c-.074.307-.241.978-.274 1.112-.043.177-.142.215-.329.129-1.23-.568-1.997-2.352-1.997-3.785 0-3.086 2.244-5.918 6.467-5.918 3.394 0 6.033 2.419 6.033 5.655 0 3.374-2.126 6.093-5.081 6.093-1 0-1.941-.52-2.263-1.135 0 0-.495 1.89-.615 2.356-.187.713-.686 1.605-1.022 2.147.77.238 1.585.368 2.432.368 5.514 0 10-4.389 10-9.795C22 6.389 17.514 2 12 2Z"/></svg>
+                            <span class="screen-reader-text"><?php esc_html_e('Follow on Pinterest', 'glow-curated'); ?></span>
+                        </a>
+                        <?php
+                    }
+
+                    // Facebook
+                    $facebook_url = get_theme_mod('glow_facebook_url', '');
+                    if ($facebook_url) {
+                        ?>
+                        <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" class="social-link social-link--facebook" aria-label="<?php esc_attr_e('Follow on Facebook', 'glow-curated'); ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>
+                            <span class="screen-reader-text"><?php esc_html_e('Follow on Facebook', 'glow-curated'); ?></span>
+                        </a>
+                        <?php
+                    }
+
+                    // X (Twitter)
+                    $x_url = get_theme_mod('glow_x_url', '');
+                    if ($x_url) {
+                        ?>
+                        <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer" class="social-link social-link--x" aria-label="<?php esc_attr_e('Follow on X', 'glow-curated'); ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            <span class="screen-reader-text"><?php esc_html_e('Follow on X', 'glow-curated'); ?></span>
+                        </a>
+                        <?php
+                    }
+
+                    echo '</div>';
                 }
                 ?>
             </div>
