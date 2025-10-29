@@ -79,18 +79,6 @@ function glow_reading_time($post_id = null) {
     return $reading_time;
 }
 
-// Display current year shortcode
-function glow_current_year_shortcode() {
-    return date('Y');
-}
-add_shortcode('current_year', 'glow_current_year_shortcode');
-
-// Enable shortcodes in post titles
-function glow_enable_shortcodes_in_titles($title) {
-    return do_shortcode($title);
-}
-add_filter('the_title', 'glow_enable_shortcodes_in_titles');
-
 // Customize excerpt length
 function glow_excerpt_length($length) {
     return 30;

@@ -1,0 +1,151 @@
+/*
+Theme Name: Glow Curated
+Theme URI: https://glowcurated.com/
+Author: Glow Curated Team
+Author URI: https://glowcurated.com/
+Description: A luxury beauty editorial theme inspired by Glow Curated's curated static site. Includes customizable hero content, brand colors, Pinterest integrations, and editorial layouts for posts and pages.
+Version: 2.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: glow-curated
+Tags: blog, custom-colors, custom-logo, custom-menu, featured-images, editor-style, one-column, two-columns
+*/
+
+/* The bulk of the theme styles are enqueued from assets/css. This file only holds the required header block and minimal fallbacks. */
+:root {
+  --gc-accent: #E89B7E;
+  --gc-base: #FAF9F6;
+  --gc-text: #201C17;
+}
+
+body {
+  background-color: var(--gc-base);
+  color: var(--gc-text);
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* WordPress Core Styles */
+.wp-caption { max-width: 100%; }
+.wp-caption-text { text-align: center; font-size: 0.9em; color: var(--color-text-light, #7A6F67); }
+.alignleft { float: left; margin-right: 1.5em; }
+.alignright { float: right; margin-left: 1.5em; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignwide { max-width: 1200px; }
+.alignfull { max-width: 100%; }
+
+/* WordPress Blocks */
+.wp-block-image img {
+    border-radius: var(--border-radius, 20px);
+    height: auto;
+    max-width: 100%;
+}
+
+.wp-block-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-md, 1.5rem);
+}
+
+/* Hero with Featured Image */
+.hero-image-wrapper {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(44, 44, 44, 0) 0%,
+        rgba(44, 44, 44, 0.2) 50%,
+        rgba(44, 44, 44, 0.6) 100%
+    );
+}
+
+.hero-content.with-image {
+    position: relative;
+    margin-top: -100px;
+    background: var(--color-background, #FAF9F6);
+    padding: var(--spacing-xl, 4rem) var(--spacing-lg, 3rem);
+    border-radius: var(--border-radius, 20px) var(--border-radius, 20px) 0 0;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Cards with Images */
+.product-card {
+    background: var(--color-accent, #FDEFE8);
+    border-radius: var(--border-radius, 20px);
+    overflow: hidden;
+    transition: transform var(--transition, 0.3s ease), box-shadow var(--transition, 0.3s ease);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(232, 155, 126, 0.2);
+}
+
+.product-image {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition, 0.3s ease);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-details {
+    padding: var(--spacing-md, 1.5rem);
+}
+
+/* Text-Only Mode */
+.text-only-mode .hero-image-wrapper,
+.text-only-mode .product-image,
+.text-only-mode .wp-block-image,
+.text-only-mode .wp-post-image {
+    display: none !important;
+}
+
+.text-only-mode .hero-content.with-image {
+    margin-top: 0;
+}
+
+/* Gutenberg Button Styles */
+.wp-block-button__link {
+    background: var(--color-primary, #E89B7E);
+    color: #FFFFFF;
+    padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1.5rem);
+    border-radius: var(--border-radius, 20px);
+    text-decoration: none;
+    transition: background var(--transition, 0.3s ease);
+}
+
+.wp-block-button__link:hover {
+    background: var(--color-primary-dark, #d88162);
+}
+
+/* Admin Bar Adjustment */
+.admin-bar .site-header.sticky {
+    top: 32px;
+}
+
+@media (max-width: 782px) {
+    .admin-bar .site-header.sticky {
+        top: 46px;
+    }
+}
