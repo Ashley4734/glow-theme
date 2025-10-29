@@ -201,7 +201,7 @@ section.blog-hero .hero-content.with-image {
 .blog-hero .hero-content.with-image .share .share-btn {
     background: rgba(255,255,255,.92) !important;
     border: 1px solid rgba(255,255,255,.85) !important;
-    color: #2c2c2c !important;
+    color: var(--gc-accent) !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
@@ -209,6 +209,7 @@ section.blog-hero .hero-content.with-image {
 .blog-hero .hero-content.with-image .share .share-btn:hover {
     background: rgba(255,255,255,1) !important;
     border-color: rgba(255,255,255,1) !important;
+    color: #D88A6F !important;
 }
 
 /* Posts without featured images */
