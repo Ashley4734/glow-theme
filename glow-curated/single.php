@@ -6,7 +6,6 @@
 
 get_header(); ?>
 
-<main id="main" class="main-content" tabindex="-1">
 <?php while ( have_posts() ) : the_post(); ?>
 
 <?php
@@ -257,7 +256,6 @@ get_header(); ?>
 </article>
 
 <?php endwhile; ?>
-</main>
 
 <script>
 /* Reading progress + copy link */
