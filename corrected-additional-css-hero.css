@@ -1,0 +1,155 @@
+/* ===== SINGLE POST HERO – TITLE OVERLAY (Corrected) ===== */
+
+/* Hero container */
+.blog-hero {
+  position: relative !important;
+  min-height: clamp(400px, 50vw, 650px) !important;
+  overflow: hidden !important;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  background: #fff;
+  display: block !important;
+  margin: 0 !important;
+}
+
+/* Image wrapper - absolute positioned to fill hero */
+.blog-hero .hero-image-wrapper {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  z-index: 0 !important;
+}
+
+/* Image fills the wrapper */
+.blog-hero .hero-image-wrapper img,
+.blog-hero .hero-image,
+.blog-hero img.wp-post-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  display: block !important;
+  transform: scale(1.02);
+  transition: transform .35s ease;
+}
+
+.blog-hero .hero-image-wrapper:hover img,
+.blog-hero .hero-image-wrapper:hover .hero-image {
+  transform: scale(1.04);
+}
+
+/* Dark gradient overlay */
+.blog-hero .hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.10) 0%,
+    rgba(0,0,0,0.34) 48%,
+    rgba(0,0,0,0.62) 100%) !important;
+  pointer-events: none !important;
+}
+
+/* Content wrapper */
+.blog-hero .hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Title overlays the image at bottom */
+.blog-hero .hero-content.with-image {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-top: 0 !important; /* Override the -72px */
+}
+
+.blog-hero .hero-content.with-image .container {
+  padding: clamp(16px, 3vw, 32px) clamp(16px, 3vw, 28px) clamp(24px, 4vw, 40px) !important;
+}
+
+/* White text with shadows for readability */
+.blog-hero .hero-content.with-image h1,
+.blog-hero .hero-content.with-image .eyebrow,
+.blog-hero .hero-content.with-image .lede,
+.blog-hero .hero-content.with-image .meta,
+.blog-hero .hero-content.with-image .breadcrumb {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.45) !important;
+}
+
+.blog-hero .hero-content.with-image .breadcrumb a {
+  color: #fff !important;
+  border-bottom-color: rgba(255,255,255,.45) !important;
+}
+
+.blog-hero .hero-content.with-image .breadcrumb a:hover {
+  border-bottom-color: rgba(255,255,255,.85) !important;
+}
+
+/* Share buttons */
+.blog-hero .hero-content.with-image .share .share-btn {
+  background: rgba(255,255,255,.92) !important;
+  border-color: rgba(255,255,255,.85) !important;
+  color: #2c2c2c !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.blog-hero .hero-content.with-image .share .share-btn:hover {
+  background: rgba(255,255,255,1) !important;
+  border-color: rgba(255,255,255,1) !important;
+}
+
+/* Text-only posts (no image) */
+.blog-hero .hero-content.text-only {
+  position: relative !important;
+  padding: clamp(28px, 5vw, 56px) 0 clamp(16px, 3vw, 28px) !important;
+  margin: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px) {
+  .blog-hero {
+    min-height: clamp(350px, 48vw, 550px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-hero {
+    min-height: clamp(320px, 60vw, 450px) !important;
+  }
+
+  .blog-hero .hero-content.with-image h1 {
+    font-size: clamp(1.6rem, 5vw, 2.4rem) !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .blog-hero .hero-image-wrapper img,
+  .blog-hero .hero-image {
+    transition: none !important;
+    transform: scale(1) !important;
+  }
+}
