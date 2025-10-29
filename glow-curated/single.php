@@ -116,7 +116,6 @@ get_header(); ?>
                     <?php if ( get_the_author_meta('display_name') ) : ?>
                         <span class="separator">·</span>
                         <span class="byline">
-                            <?php echo get_avatar( get_the_author_meta('ID'), 28 ); ?>
                             <span><?php echo esc_html( get_the_author_meta('display_name') ); ?></span>
                         </span>
                     <?php endif; ?>
