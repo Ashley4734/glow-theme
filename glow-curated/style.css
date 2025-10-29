@@ -47,7 +47,7 @@ body {
 }
 
 /* ===== SINGLE POST HERO – TITLE OVERLAY ===== */
-/* Version: 2.2 - Fixed image positioning and text overlay */
+/* Version: 2.3 - Override inline width/height attributes */
 
 /* Hero container - establishes positioning context */
 .blog-hero,
@@ -84,16 +84,23 @@ section.blog-hero .hero-image-wrapper {
 .blog-hero .hero-image-wrapper img.wp-post-image,
 .blog-hero img.hero-image,
 section.blog-hero .hero-image-wrapper > img {
+    /* Override inline width/height attributes */
     position: absolute !important;
+    inset: 0 !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
+
+    /* Force 100% dimensions */
     width: 100% !important;
     height: 100% !important;
     max-width: none !important;
+    max-height: none !important;
     min-width: 100% !important;
     min-height: 100% !important;
+
+    /* Layout properties */
     display: block !important;
     object-fit: cover !important;
     object-position: center center !important;
@@ -101,6 +108,8 @@ section.blog-hero .hero-image-wrapper > img {
     margin: 0 !important;
     padding: 0 !important;
     float: none !important;
+
+    /* Animation */
     transform: scale(1.02);
     transition: transform .35s ease;
 }
@@ -233,6 +242,13 @@ section.blog-hero .hero-content.with-image {
         transition: none !important;
         transform: scale(1) !important;
     }
+}
+
+/* Debug: Force override any remaining conflicts */
+.blog-hero .hero-image-wrapper img[width],
+.blog-hero .hero-image-wrapper img[height] {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* Legacy fallback for pages using old hero class */
